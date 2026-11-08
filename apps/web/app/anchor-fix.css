@@ -1,0 +1,3 @@
+html{scroll-behavior:smooth}
+#booking{scroll-margin-top:24px}
+#booking:target{outline:3px solid rgba(255,255,255,.65);outline-offset:-3px}
