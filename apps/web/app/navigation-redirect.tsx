@@ -1,0 +1,4 @@
+'use client';
+import { useEffect } from 'react';
+const routes:Record<string,string>={'#booking':'/search-results','#schedules':'/schedules-fares','#fares':'/schedules-fares','#advisory':'/travel-advisories','#advisories':'/travel-advisories','#help':'/help'};
+export default function NavigationRedirect(){useEffect(()=>{const handler=(event:MouseEvent)=>{const element=event.target as HTMLElement;const payment=element.closest<HTMLButtonElement>('.pay-button');if(payment&&window.location.pathname==='/booking-summary'){event.preventDefault();window.location.assign(`/review-pay${window.location.search}`);return}const target=element.closest<HTMLAnchorElement>('a[href]');if(!target)return;const destination=routes[target.getAttribute('href')||''];if(!destination)return;event.preventDefault();window.location.assign(destination)};document.addEventListener('click',handler);return()=>document.removeEventListener('click',handler)},[]);return null}
