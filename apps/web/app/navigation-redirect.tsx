@@ -1,5 +1,20 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-const routes:Record<string,string>={'#booking':'/search-results','#schedules':'/schedules-fares','#fares':'/schedules-fares','#advisory':'/travel-advisories','#advisories':'/travel-advisories','#help':'/help'};
-export default function NavigationRedirect(){const router=useRouter();useEffect(()=>{const handler=(event:MouseEvent)=>{const element=event.target as HTMLElement;const payment=element.closest<HTMLButtonElement>('.pay-button');if(payment&&window.location.pathname==='/booking-summary'){event.preventDefault();router.push(`/review-pay${window.location.search}`);return}const target=element.closest<HTMLAnchorElement>('a[href]');if(!target)return;const destination=routes[target.getAttribute('href')||''];if(!destination)return;event.preventDefault();router.push(destination)};document.addEventListener('click',handler);return()=>document.removeEventListener('click',handler)},[router]);return null}
+
+export default function NavigationRedirect(){
+  const router=useRouter();
+  useEffect(()=>{
+    const handler=(event:MouseEvent)=>{
+      const element=event.target as HTMLElement;
+      const payment=element.closest<HTMLButtonElement>('.pay-button');
+      if(payment&&window.location.pathname==='/booking-summary'){
+        event.preventDefault();
+        router.push(`/review-pay${window.location.search}`);
+      }
+    };
+    document.addEventListener('click',handler);
+    return()=>document.removeEventListener('click',handler);
+  },[router]);
+  return null;
+}
