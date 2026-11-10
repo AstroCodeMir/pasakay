@@ -3,3 +3,4 @@
 .universal-links>a.active:after{bottom:6px}
 .universal-links>a.active:after{transform:translateY(6px)}
 .universal-links>a.active:after{transform:translateY(10px)}
+.route-loading-overlay{position:fixed;inset:0;z-index:100;background:rgba(242,247,253,.72);backdrop-filter:blur(2px);display:grid;place-items:center}.route-loading-card{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #d7e5f7;border-radius:12px;padding:14px 18px;color:#104783;font-weight:700;box-shadow:0 8px 25px #10478325}.route-loading-spinner{width:19px;height:19px;border:3px solid #c9def8;border-top-color:#0866d5;border-radius:50%;animation:route-spin .7s linear infinite}@keyframes route-spin{to{transform:rotate(360deg)}}
