@@ -3,4 +3,11 @@
 /* The universal navbar is 48px on desktop; let the homepage hero fill the remaining viewport. */
 .site-shell .hero{min-height:calc(100vh - 48px)}.site-shell .hero-inner{min-height:calc(100vh - 48px)}
 @media(max-width:700px){.site-shell .hero,.site-shell .hero-inner{min-height:calc(100vh - 66px)}}
+/* The global navbar is outside the homepage shell. On desktop, reserve its
+   height explicitly so the shell does not create a second viewport below it. */
+@media(min-width:701px){
+  .site-shell{height:calc(100dvh - 48px);min-height:0}
+  .site-shell .hero{height:100%;min-height:0}
+  .site-shell .hero-inner{height:100%;min-height:0}
+}
 .route-skeleton{min-height:100vh;background:#f2f7fd;color:#10264a}.skeleton-bar{height:48px;background:#104783}.skeleton-wrap{max-width:1200px;margin:auto;padding:36px 28px}.skeleton-title,.skeleton-line,.skeleton-card{background:linear-gradient(90deg,#e0eaf5 25%,#f5f9fd 50%,#e0eaf5 75%);background-size:200% 100%;animation:skeleton-shimmer 1.2s infinite;border-radius:12px}.skeleton-title{height:42px;width:34%;margin-bottom:12px}.skeleton-line{height:18px;width:52%;margin-bottom:28px}.skeleton-line.short{width:28%}.skeleton-card{height:170px}.skeleton-card.large{height:260px;margin-bottom:18px}.skeleton-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@keyframes skeleton-shimmer{to{background-position:-200% 0}}@media(max-width:700px){.skeleton-wrap{padding:24px 16px}.skeleton-title{width:70%}.skeleton-line{width:90%}.skeleton-grid{grid-template-columns:1fr}}
